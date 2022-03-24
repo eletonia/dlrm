@@ -108,6 +108,8 @@ with warnings.catch_warnings():
 # import torch.nn.functional as Functional
 # from torch.nn.parameter import Parameter
 
+import torch.cuda.profiler as profiler
+
 exc = getattr(builtins, "IOError", "FileNotFoundError")
 
 
@@ -764,6 +766,7 @@ def inference(
         scores = []
         targets = []
 
+    profiler.start()
     for i, testBatch in enumerate(test_ld):
         # early exit if nbatches was set by the user and was exceeded
         if nbatches > 0 and i >= nbatches:
@@ -812,7 +815,8 @@ def inference(
 
                 test_accu += A_test
                 test_samp += mbs_test
-
+    profiler.stop()
+    
     if args.mlperf_logging:
         with record_function("DLRM mlperf sklearn metrics compute"):
             scores = np.concatenate(scores, axis=0)
