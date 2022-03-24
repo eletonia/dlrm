@@ -21,6 +21,11 @@ echo "run pytorch ..."
 # WARNING: the following parameters will be set based on the data set
 # --arch-embedding-size=... (sparse feature sizes)
 # --arch-mlp-bot=... (the input to the first layer of bottom mlp)
+
+#Add nsys profiling and run DLRM inference only code
+export GPU_ID=4 #choose a device id 
+CUDA_VISIBLE_DEVICES=$GPU_ID\
+nsys profile -f true -o timeline -c cudaProfilerApi --stop-on-range-end true -s none --gpu-metrics-device=$GPU_ID --gpu-metrics-set=ga100\
 $dlrm_pt_bin --arch-sparse-feature-size=16 \
 	--arch-mlp-bot="13-512-256-64-16" \
 	--arch-mlp-top="512-256-1" \
