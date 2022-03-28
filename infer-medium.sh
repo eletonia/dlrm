@@ -40,9 +40,9 @@ nsys profile -f true -o timeline -c cudaProfilerApi --stop-on-range-end true -s 
 	--load-model=/mnt/nvme1n1p1/DLRM/data-medium/criteo-medium-100bat.pt \
 	--print-freq=1024 \
 	--print-time \
-	--test-mini-batch-size=16384 \
-	--num-batches=65536 \
-	--test-num-workers=8 \
+	--test-mini-batch-size=1024 \
+	--num-batches=1024 \
+	--test-num-workers=1 \
 	--use-gpu \
 	$dlrm_extra_option 2>&1 | tee inf_kaggle_pt.log
 
