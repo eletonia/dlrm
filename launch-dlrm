@@ -9,8 +9,8 @@ python3 dlrm_s_pytorch.py
 	--predict_languages en 
 	--eval_test_set
 	--arch-sparse-feature-size=16 \
-	--arch-mlp-bot="13-512-256-64-16" \
-	--arch-mlp-top="512-256-1" \
+	--arch-mlp-bot=13-512-256-64-16 \
+	--arch-mlp-top=512-256-1 \
 	--data-generation=dataset \
 	--data-set=kaggle \
 	--raw-data-file=/mnt/nvme1n1p1/DLRM/data-medium/train.txt \
