@@ -1,14 +1,4 @@
 python3 dlrm_s_pytorch.py
-	--model_type xlmr
-	--model_name_or_path predictions/xnli_SEED42/checkpoint-best 
-	--train_language en 
-	--task_name xnli 
-	--do_predict
-	--data_dir /nvme/ccyang/xnli 
-	--output_dir predictions/xnli_SEED42/ 
-	--predict_languages en 
-	--eval_test_set
-	--arch-sparse-feature-size=16 \
 	--arch-mlp-bot=13-512-256-64-16 \
 	--arch-mlp-top=512-256-1 \
 	--data-generation=dataset \
@@ -24,4 +14,5 @@ python3 dlrm_s_pytorch.py
 	--test-mini-batch-size=16384 \
 	--num-batches=65536 \
 	--test-num-workers=8 \
-	--use-gpu
+	--use-gpu \
+	$dlrm_extra_option 2>&1 | tee inf_kaggle_pt.log
