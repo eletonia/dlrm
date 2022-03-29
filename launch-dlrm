@@ -3,7 +3,7 @@ python3 dlrm_s_pytorch.py
 	--arch-mlp-top=512-256-1
 	--data-generation=dataset
 	--data-set=kaggle
-	--raw-data-file=/mnt/nvme1n1p1/DLRM/data-medium/train.txt \
+	--raw-data-file=/mnt/nvme1n1p1/DLRM/data-medium/train.txt
 	--processed-data-file=/mnt/nvme1n1p1/DLRM/data-medium/kaggleAdDisplayChallenge_processed.npz
 	--inference-only
 	--loss-function=bce
