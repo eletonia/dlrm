@@ -1,0 +1,199 @@
+==PROF== Target process 146597 terminated before first instrumented API call.
+==PROF== Target process 146598 terminated before first instrumented API call.
+==PROF== Target process 146599 terminated before first instrumented API call.
+==PROF== Connected to process 146600 (/usr/bin/python3.8)
+==PROF== Target process 146602 terminated before first instrumented API call.
+Unable to import mlperf_logging,  No module named 'mlperf_logging'
+world size: 1, current rank: 0, local rank: 0
+Using 1 GPU(s)...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined train indices...
+Randomized indices across days ...
+Split data according to indices...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined test indices...
+Randomized indices across days ...
+Split data according to indices...
+Loading saved model /tmp/dlrm_rd/criteo-medium-100bat.pt
+Saved at: epoch = 0/1, batch = 512/512, ntbatch = 25581
+Training state: loss = 0.522237
+Testing state: accuracy = 76.654 %
+time/loss/accuracy (if enabled):
+Testing for inference only
+==PROF== Profiling "gemv2T_kernel_val" - 1: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 2: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 3: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 4: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 5: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 6: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 7: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 8: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 9: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 10: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 11: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 12: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 13: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 14: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 15: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 16: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 17: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 18: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 19: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 20: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 21: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 22: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 23: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 24: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 25: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 26: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 27: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 28: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 29: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 30: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 31: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 32: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 33: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 34: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 35: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 36: 0%....50%....100% - 20 passes
+==PROF== Profiling "CatArrayBatchedCopy" - 37: 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn" - 38: 0%....50%....100% - 20 passes
+==PROF== Profiling "index_elementwise_kernel" - 39: 0%....50%....100% - 20 passes
+==PROF== Profiling "CatArrayBatchedCopy" - 40: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 41: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 42: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 43: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 44: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 45: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 46: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 47: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 48: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 49: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 50: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 51: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 52: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 53: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 54: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 55: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 56: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 57: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 58: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 59: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 60: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 61: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 62: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 63: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 64: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 65: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 66: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 67: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 68: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 69: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 70: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 71: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 72: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 73: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 74: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 75: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 76: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 77: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 78: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 79: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 80: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 81: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 82: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 83: 0%....50%....100% - 20 passes
+==PROF== Profiling "CatArrayBatchedCopy" - 84: 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn" - 85: 0%....50%....100% - 20 passes
+==PROF== Profiling "index_elementwise_kernel" - 86: 0%....50%....100% - 20 passes
+==PROF== Profiling "CatArrayBatchedCopy" - 87: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 88: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 89: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 90: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 91: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 92: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 93: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 94: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 95: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 96: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 97: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 98: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 99: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 100: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 101: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 102: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 103: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 104: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 105: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 106: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 107: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 108: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 109: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 110: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 111: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 112: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 113: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 114: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 115: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 116: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 117: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 118: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 119: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 120: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 121: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 122: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 123: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 124: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 125: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 126: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 127: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 128: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 129: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 130: 0%....50%....100% - 20 passes
+==PROF== Profiling "CatArrayBatchedCopy" - 131: 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn" - 132: 0%....50%....100% - 20 passes
+==PROF== Profiling "index_elementwise_kernel" - 133: 0%....50%....100% - 20 passes
+==PROF== Profiling "CatArrayBatchedCopy" - 134: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 135: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 136: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 137: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 138: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 139: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 140: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 141: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 142: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 143: 0%....50%....100% - 20 passes
+==PROF== Profiling "gemv2T_kernel_val" - 144: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 145: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 146: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 147: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 148: 0%....50%....100% - 20 passes
+==PROF== Profiling "dot_kernel" - 149: 0%....50%....100% - 20 passes
+==PROF== Profiling "reduce_1Block_kernel" - 150: 0%....50%....100% - 20 passes
+==PROF== Profiling "vectorized_elementwise_kernel" - 151: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 152: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 153: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 154: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 155: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 156: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 157: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 158: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 159: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 160: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 161: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 162: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 163: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 164: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 165: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 166: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 167: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 168: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 169: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 170: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 171: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 172: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 173: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 174: 0%....50%....100% - 20 passes
+==PROF== Profiling "EmbeddingBag_updateOutputKern..." - 175: 
