@@ -1,0 +1,29 @@
+Warning: LBR backtrace method is not supported on this platform. DWARF backtrace method will be used.
+Unable to import mlperf_logging,  No module named 'mlperf_logging'
+world size: 1, current rank: 0, local rank: 0
+Using 1 GPU(s)...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined train indices...
+Randomized indices across days ...
+Split data according to indices...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined test indices...
+Randomized indices across days ...
+Split data according to indices...
+Loading saved model /tmp/dlrm_rd/criteo-medium-100bat.pt
+Saved at: epoch = 0/1, batch = 512/512, ntbatch = 25581
+Training state: loss = 0.522237
+Testing state: accuracy = 76.654 %
+time/loss/accuracy (if enabled):
+Testing for inference only
+/home/eletonia/.local/lib/python3.8/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 16 worker processes in total. Our suggested max number of worker in current system is 6, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Capture range started in the application.
+Generating '/tmp/nsys-report-bf23.qdstrm'
+Capture range ended in the application.
+[1/1] [0%                          ] dlrm-1649275678-timeline.nsys-rep[1/1] [0%                          ] dlrm-1649275678-timeline.nsys-rep[1/1] [2%                          ] dlrm-1649275678-timeline.nsys-rep[1/1] [4%                          ] dlrm-1649275678-timeline.nsys-rep[1/1] [6%                          ] dlrm-1649275678-timeline.nsys-rep[1/1] [8%                          ] dlrm-1649275678-timeline.nsys-rep[1/1] [9%                          ] dlrm-1649275678-timeline.nsys-rep[1/1] [11%                         ] dlrm-1649275678-timeline.nsys-rep[1/1] [13%                         ] dlrm-1649275678-timeline.nsys-rep[1/1] [14%                         ] dlrm-1649275678-timeline.nsys-rep[1/1] [=15%                        ] dlrm-1649275678-timeline.nsys-rep[1/1] [=16%                        ] dlrm-1649275678-timeline.nsys-rep[1/1] [==18%                       ] dlrm-1649275678-timeline.nsys-rep[1/1] [==19%                       ] dlrm-1649275678-timeline.nsys-rep[1/1] [==20%                       ] dlrm-1649275678-timeline.nsys-rep[1/1] [==21%                       ] dlrm-1649275678-timeline.nsys-rep[1/1] [===23%                      ] dlrm-1649275678-timeline.nsys-rep[1/1] [===24%                      ] dlrm-1649275678-timeline.nsys-rep[1/1] [====25%                     ] dlrm-1649275678-timeline.nsys-rep[1/1] [====26%                     ] dlrm-1649275678-timeline.nsys-rep[1/1] [====27%                     ] dlrm-1649275678-timeline.nsys-rep[1/1] [=====29%                    ] dlrm-1649275678-timeline.nsys-rep[1/1] [=====31%                    ] dlrm-1649275678-timeline.nsys-rep[1/1] [=====32%                    ] dlrm-1649275678-timeline.nsys-rep[1/1] [======34%                   ] dlrm-1649275678-timeline.nsys-rep[1/1] [======35%                   ] dlrm-1649275678-timeline.nsys-rep[1/1] [=======36%                  ] dlrm-1649275678-timeline.nsys-rep[1/1] [=======37%                  ] dlrm-1649275678-timeline.nsys-rep[1/1] [=======38%                  ] dlrm-1649275678-timeline.nsys-rep[1/1] [=======39%                  ] dlrm-1649275678-timeline.nsys-rep[1/1] [========40%                 ] dlrm-1649275678-timeline.nsys-rep[1/1] [========41%                 ] dlrm-1649275678-timeline.nsys-rep[1/1] [========42%                 ] dlrm-1649275678-timeline.nsys-rep[1/1] [=========43%                ] dlrm-1649275678-timeline.nsys-rep[1/1] [=========44%                ] dlrm-1649275678-timeline.nsys-rep[1/1] [=========45%                ] dlrm-1649275678-timeline.nsys-rep[1/1] [=========46%                ] dlrm-1649275678-timeline.nsys-rep[1/1] [==========47%               ] dlrm-1649275678-timeline.nsys-rep[1/1] [==================77%       ] dlrm-1649275678-timeline.nsys-rep[1/1] [==================78%       ] dlrm-1649275678-timeline.nsys-rep[1/1] [===================79%      ] dlrm-1649275678-timeline.nsys-rep[1/1] [===================80%      ] dlrm-1649275678-timeline.nsys-rep[1/1] [===================81%      ] dlrm-1649275678-timeline.nsys-rep[1/1] [===================82%      ] dlrm-1649275678-timeline.nsys-rep[1/1] [====================83%     ] dlrm-1649275678-timeline.nsys-rep[1/1] [====================84%     ] dlrm-1649275678-timeline.nsys-rep[1/1] [====================85%     ] dlrm-1649275678-timeline.nsys-rep[1/1] [=====================86%    ] dlrm-1649275678-timeline.nsys-rep[1/1] [=====================87%    ] dlrm-1649275678-timeline.nsys-rep[1/1] [========================100%] dlrm-1649275678-timeline.nsys-rep[1/1] [========================100%] dlrm-1649275678-timeline.nsys-rep
+ accuracy 76.538 %, best 76.538 %
+Generated:
+    /home/eletonia/dlrm/dlrm-fork/dlrm/dlrm-1649275678-timeline.nsys-rep
