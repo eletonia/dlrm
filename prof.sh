@@ -111,13 +111,12 @@ else
     taskset -c ${CORES} \
         ${NCU_BIN} --profile-from-start off  \
         -o ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}-profile \
-        --kernel-name-base mangled \
-        -k regex:_ZN7cutlass6KernelI52cutlass_80_tensorop_s1688gemm_ -s 200 -c 12 \
         --section SpeedOfLight \
         --section ComputeWorkloadAnalysis \
         --section MemoryWorkloadAnalysis \
         --section Occupancy \
         --section SchedulerStats \
         --section WarpStateStats \
+	--target-processes all
         bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}.log.txt
 fi
