@@ -12,9 +12,11 @@ python3 dlrm_s_pytorch.py \
 	--load-model=/tmp/dlrm_rd/criteo-medium-100bat.pt \
 	--print-freq=1024 \
 	--print-time \
-	--test-mini-batch-size=16384 \
-	--num-batches=65536 \
-	--test-num-workers=8 \
+	--mini-batch-size=$BatchSize \
+	--test-mini-batch-size=$BatchSize \
+	--num-batches=$NumBatches \
+	--test-num-workers=$NumWorkers \
+	--num-workers=$NumWorkers \
 	--use-gpu \
 	$dlrm_extra_option 2>&1 | tee inf_kaggle_pt.log
 
