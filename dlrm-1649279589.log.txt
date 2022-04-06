@@ -1,0 +1,45 @@
+==PROF== Target process 150484 terminated before first instrumented API call.
+==PROF== Target process 150485 terminated before first instrumented API call.
+==PROF== Target process 150486 terminated before first instrumented API call.
+==PROF== Connected to process 150487 (/usr/bin/python3.8)
+==PROF== Target process 150489 terminated before first instrumented API call.
+Unable to import mlperf_logging,  No module named 'mlperf_logging'
+world size: 1, current rank: 0, local rank: 0
+Using 1 GPU(s)...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined train indices...
+Randomized indices across days ...
+Split data according to indices...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined test indices...
+Randomized indices across days ...
+Split data according to indices...
+Loading saved model /tmp/dlrm_rd/criteo-medium-100bat.pt
+Saved at: epoch = 0/1, batch = 512/512, ntbatch = 25581
+Training state: loss = 0.522237
+Testing state: accuracy = 76.654 %
+time/loss/accuracy (if enabled):
+Testing for inference only
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Profiling "volta_sgemm_32x128_tn": 0%....50%....100% - 20 passes
+==PROF== Target process 150697 terminated before first instrumented API call.
+==PROF== Target process 150889 terminated before first instrumented API call.
+==PROF== Target process 150505 terminated before first instrumented API call.
+==PROF== Target process 151081 terminated before first instrumented API call.
+ accuracy 76.538 %, best 76.538 %
+==PROF== Target process 151465 terminated before first instrumented API call.
+==PROF== Target process 151273 terminated before first instrumented API call.
+==PROF== Disconnected from process 150487
+==PROF== Report: /home/eletonia/dlrm/dlrm-fork/dlrm/dlrm-1649279589-profile.ncu-rep
