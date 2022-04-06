@@ -112,8 +112,9 @@ else
         ${NCU_BIN} --profile-from-start off  \
         -o ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}-profile \
 	--kernel-name-base mangled \
-	-k regex:_s1688gemm_ -s 200 -c 12 \
+	-k regex:gemm -s 200 -c 12 \
         --section SpeedOfLight \
+    	--section SpeedOfLight_RooflineChart
         --section ComputeWorkloadAnalysis \
         --section MemoryWorkloadAnalysis \
         --section Occupancy \
