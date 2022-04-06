@@ -766,7 +766,7 @@ def inference(
         scores = []
         targets = []
 
-    profiler.start()
+    #profiler.start()
     for i, testBatch in enumerate(test_ld):
         # early exit if nbatches was set by the user and was exceeded
         if nbatches > 0 and i >= nbatches:
@@ -782,6 +782,7 @@ def inference(
             continue
 
         # forward pass
+        profiler.start()
         Z_test = dlrm_wrap(
             X_test,
             lS_o_test,
@@ -790,6 +791,7 @@ def inference(
             device,
             ndevices=ndevices,
         )
+        profiler.stop()
         ### gather the distributed results on each rank ###
         # For some reason it requires explicit sync before all_gather call if
         # tensor is on GPU memory
@@ -815,8 +817,8 @@ def inference(
 
                 test_accu += A_test
                 test_samp += mbs_test
-    profiler.stop()
-    
+    #profiler.stop()
+
     if args.mlperf_logging:
         with record_function("DLRM mlperf sklearn metrics compute"):
             scores = np.concatenate(scores, axis=0)
