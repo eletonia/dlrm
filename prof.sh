@@ -111,6 +111,8 @@ else
     taskset -c ${CORES} \
         ${NCU_BIN} --profile-from-start off  \
         -o ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}-profile \
+	--kernel-name-base mangled \
+	-k regex:_s1688gemm_ -s 200 -c 12 \
         --section SpeedOfLight \
         --section ComputeWorkloadAnalysis \
         --section MemoryWorkloadAnalysis \
