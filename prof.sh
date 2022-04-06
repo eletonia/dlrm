@@ -117,6 +117,6 @@ else
         --section Occupancy \
         --section SchedulerStats \
         --section WarpStateStats \
-	--target-processes all
+	--target-processes all \
         bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}.log.txt
 fi
