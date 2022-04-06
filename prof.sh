@@ -114,7 +114,7 @@ else
 	--kernel-name-base mangled \
 	-k regex:gemm -s 200 -c 12 \
         --section SpeedOfLight \
-    	--section SpeedOfLight_RooflineChart
+    	--section SpeedOfLight_RooflineChart \
         --section ComputeWorkloadAnalysis \
         --section MemoryWorkloadAnalysis \
         --section Occupancy \
