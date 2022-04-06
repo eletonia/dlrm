@@ -26,12 +26,12 @@ export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}
 CORES_PER_GPU=${CORES_PER_GPU:-6}
 
 # Change GPU type for nsight systems to collect the right metrics
-GPU_TYPE=${GPU_TYPE:-ga100}
+GPU_TYPE=${GPU_TYPE:-v100}
 GPU_LIBS_TRACE=${GPU_LIBS_TRACE:-cuda,cublas,cudnn}
 
 # Set the app name. If $APP is set in the environment, that value will be used.
 # Otherwise the default value "xquad" is used.
-APP=dlrm
+APP=${APP:-xquad}
 
 # Your application lauch command. Customize as needed
 APP_LAUNCH_SCRIPT=${APP_LAUNCH_SCRIPT:-launch-${APP}.sh}
