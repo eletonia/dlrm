@@ -1,7 +1,7 @@
-python3 dlrm_s_pytorch.py
-	--arch-sparse-feature-size=16	
-	--arch-mlp-bot=13-512-256-64-16
-	--arch-mlp-top=512-256-1
+python3 dlrm_s_pytorch.py \
+	--arch-sparse-feature-size=16 \	
+	--arch-mlp-bot=13-512-256-64-16 \
+	--arch-mlp-top=512-256-1 \
 	--data-generation=dataset \
 	--data-set=kaggle \
 	--raw-data-file=/tmp/dlrm_rd/train.txt \
