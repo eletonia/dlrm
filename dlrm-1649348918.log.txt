@@ -1,0 +1,45 @@
+==PROF== Target process 195553 terminated before first instrumented API call.
+==PROF== Target process 195554 terminated before first instrumented API call.
+==PROF== Target process 195555 terminated before first instrumented API call.
+==PROF== Connected to process 195556 (/usr/bin/python3.8)
+==PROF== Target process 195563 terminated before first instrumented API call.
+Unable to import mlperf_logging,  No module named 'mlperf_logging'
+world size: 1, current rank: 0, local rank: 0
+Using 1 GPU(s)...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined train indices...
+Randomized indices across days ...
+Split data according to indices...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined test indices...
+Randomized indices across days ...
+Split data according to indices...
+Loading saved model /tmp/dlrm_rd/criteo-medium-100bat.pt
+Saved at: epoch = 0/1, batch = 512/512, ntbatch = 25581
+Training state: loss = 0.522237
+Testing state: accuracy = 76.654 %
+time/loss/accuracy (if enabled):
+Testing for inference only
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align1EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_32x6_tn_align4EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI51cutlass_80_tensorop_s1688gemm_64x64_16x10_tn_align1EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_32x6_tn_align1EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_16x6_nn_align1EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align1EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_32x6_tn_align4EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Profiling "_ZN7cutlass6KernelI50cutlass_80_tensorop_s1688gemm_64x64_16x6_tn_align4EEvNT_6ParamsE": 0%....50%....100% - 16 passes
+==PROF== Target process 195643 terminated before first instrumented API call.
+==PROF== Target process 196156 terminated before first instrumented API call.
+==PROF== Target process 196413 terminated before first instrumented API call.
+==PROF== Target process 195899 terminated before first instrumented API call.
+==PROF== Target process 196669 terminated before first instrumented API call.
+ accuracy 76.514 %, best 76.514 %
+==PROF== Target process 196926 terminated before first instrumented API call.
+==PROF== Disconnected from process 195556
+==PROF== Report: /home/eletonia/dlrm/dlrm-fork/dlrm/dlrm-1649348918-profile.ncu-rep
