@@ -21,12 +21,13 @@ NSYS_PROF_RANGE=${NSYS_PROF_RANGE:-"api"}
 # Currently we assume only using single GPU
 # Note that this is a list of IDs, not the number of GPUS visible
 export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}
+export CUDA_AUTO_BOOST=1 # Enable auto boost by default for performance profiling
 
 # Change CORES_PER_GPU according to your machine setup
 CORES_PER_GPU=${CORES_PER_GPU:-6}
 
 # Change GPU type for nsight systems to collect the right metrics
-GPU_TYPE=${GPU_TYPE:-a100}
+GPU_METRICS_TYPE=${GPU_METRICS_TYPE:-ga100}
 GPU_LIBS_TRACE=${GPU_LIBS_TRACE:-cuda,cublas,cudnn}
 
 # Set the app name. If $APP is set in the environment, that value will be used.
@@ -37,30 +38,114 @@ APP=${APP:-xquad}
 APP_LAUNCH_SCRIPT=${APP_LAUNCH_SCRIPT:-launch-${APP}.sh}
 APP_LAUNCH_CMD=${APP_LAUNCH_CMD:-$(<${APP_LAUNCH_SCRIPT})}
 
+NCU_KERNEL_REGEX=${NCU_KERNEL_REGEX:-gemm}
+
 # Specify the folder you want the profile and log to be
 PROF_OUT_DIR=${PROF_OUT_DIR:-${PWD}}
 mkdir -p $PROF_OUT_DIR
 
 TIME_STAMP=$(date +%s)
 
-# Core range calculation
-CUDA_FIRST_DEVICE=$(echo $CUDA_VISIBLE_DEVICES | cut -d , -f 1)
-CUDA_TAIL_DEVICES=$(echo $CUDA_VISIBLE_DEVICES | sed 's/[0-9]\+,\?//')
-CORE_FIRST=$(( CUDA_FIRST_DEVICE * CORES_PER_GPU ))
-CORE_LAST=$(( (CUDA_FIRST_DEVICE + 1) * CORES_PER_GPU - 1))
-for gpu in ${CUDA_TAIL_DEVICES//,/ }
-do
-    CORE_GPU_FIRST=$(( gpu * CORES_PER_GPU ))
-    CORE_GPU_LAST=$(( (gpu + 1) * CORES_PER_GPU - 1))
-    if [ $CORE_GPU_FIRST -lt $CORE_FIRST ]; then CORE_FIRST=$CORE_GPU_FIRST; fi
-    if [ $CORE_GPU_LAST -gt $CORE_LAST ]; then CORE_LAST=$CORE_GPU_LAST; fi
-done
+# ############################################
+# BEGIN block for core range calculation
+# ############################################
+AFFINITY_FIELD_IDX=""
+
+function field_name_at() {
+    local field_cnt=$1
+    nvidia-smi topo -m | head -n 1 | awk -F"\t" "{print \$${field_cnt}}" | egrep "[[:print:]]+"
+}
+
+function affinity() {
+    local gpu=$1
+    nvidia-smi topo -m | egrep "^GPU${gpu}\>" | awk -F"\t" "{print \$${AFFINITY_FIELD_IDX}}" | egrep "[[:print:]]+"
+}
+
+function cores() {
+    local cores=""
+    local field_cnt=2
+
+    while field_name_at $field_cnt > /dev/null
+    do
+        if field_name_at $field_cnt | grep -q "CPU Affinity"
+        then
+            AFFINITY_FIELD_IDX=$field_cnt
+            break
+        fi
+        field_cnt=$(( field_cnt + 1 ))
+    done
+
+    if [ ! -z $AFFINITY_FIELD_IDX ]
+    then
+        for gpu in ${CUDA_VISIBLE_DEVICES//,/ }
+        do
+            ga=$(affinity $gpu)
+            if [ $? -eq 0 ]
+            then
+                if [[ "$cores" == *"$ga"* ]]
+                then
+                    true
+                else
+                    cores="$cores,$ga"
+                fi
+            else
+                return 2
+            fi
+        done
+    else
+        return 1
+    fi
+
+    if [ ! -z $cores ]
+    then
+        cores=$(echo $cores | sed 's/^,//')
+    else
+        return 3
+    fi
+
+    echo $cores
+}
+# ############################################
+# END block for core range calculation
+# ############################################
+
 # Note: the CORES range binds process to specific cores
 #       ideally they should be the same socket close to the gpu
 #       used. Override it manually if you want specific setting
 #       for your process
-CORES=${CORES:-"$CORE_FIRST-$CORE_LAST"}
+if [ -z $CORES ]
+then
+    CORES=$(cores)
+    ret=$?
+    if [ $ret -ne 0 ]
+    then
+        echo "ERROR: core range calculation failed (err=$ret)"
+        exit 1
+    fi
+fi
 
+# Compute what options to use depending on whether whole application is profiled
+case $NSYS_PROF_RANGE in
+    api)
+        NSYS_PROF_RANGE_OPTS="-c cudaProfilerApi --capture-range-end=stop"
+        NCU_PROF_FROM_START="off"
+        ;;
+    app)
+        NSYS_PROF_RANGE_OPTS=""
+        NCU_PROF_FROM_START="on"
+        ;;
+esac
+
+# Check for supported metrics types
+# Will not generate gpu metrics if the device doesn't support it
+case $GPU_METRICS_TYPE in
+    tu10x|tu11x|ga100|ga10x|tu10x-gfxt|ga10x-gfxt|ga10x-gfxact)
+        NSYS_GPU_METRICS_OPTS="--gpu-metrics-device=${CUDA_VISIBLE_DEVICES} --gpu-metrics-set=${GPU_METRICS_TYPE}"
+        ;;
+    *)
+        NSYS_GPU_METRICS_OPTS=""
+        ;;
+esac
 
 if [ ${PROFILER} != "ncu" ]; then  
     # Nsight Systems profiling
@@ -69,25 +154,6 @@ if [ ${PROFILER} != "ncu" ]; then
         echo $NSYS_BIN does not exist!
         exit -1
     fi
-
-    case $NSYS_PROF_RANGE in
-        api)
-            NSYS_PROF_RANGE_OPTS="-c cudaProfilerApi --capture-range-end=stop"
-            ;;
-        app)
-            NSYS_PROF_RANGE_OPTS=""
-            ;;
-    esac
-
-    # Only A100 supports gpu-metrics for now
-    case $GPU_TYPE in
-        ga100)
-            NSYS_GPU_METRICS_OPTS="--gpu-metrics-device=${CUDA_VISIBLE_DEVICES} --gpu-metrics-set=${GPU_TYPE}"
-            ;;
-        *)
-            NSYS_GPU_METRICS_OPTS=""
-            ;;
-    esac
 
     # nsys will accept a list of devices (as in CUDA_VISIBLE_DEVICES)
     # despite the documentation says it only allows either a single ID or 'all'
@@ -109,17 +175,16 @@ else
 
     set -x
     taskset -c ${CORES} \
-        ${NCU_BIN} --profile-from-start off  \
+        ${NCU_BIN} --profile-from-start ${NCU_PROF_FROM_START} \
         -o ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}-profile \
-	--kernel-name-base mangled \
-	-k regex:gemm -s 200 -c 12 \
+        --kernel-name-base mangled \
+        -k regex:${NCU_KERNEL_REGEX} -s 200 -c 12 \
         --section SpeedOfLight \
-    	--section SpeedOfLight_RooflineChart \
         --section ComputeWorkloadAnalysis \
         --section MemoryWorkloadAnalysis \
         --section Occupancy \
         --section SchedulerStats \
         --section WarpStateStats \
-	--target-processes all \
+        --target-processes all \
         bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}.log.txt
 fi
