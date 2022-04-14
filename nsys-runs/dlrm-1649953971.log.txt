@@ -1,0 +1,27 @@
+Warning: LBR backtrace method is not supported on this platform. DWARF backtrace method will be used.
+Unable to import mlperf_logging,  No module named 'mlperf_logging'
+world size: 1, current rank: 0, local rank: 0
+Using 1 GPU(s)...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined train indices...
+Randomized indices across days ...
+Split data according to indices...
+Reading pre-processed data=/tmp/dlrm_rd/kaggleAdDisplayChallenge_processed.npz
+Sparse fea = 26, Dense fea = 13
+Defined test indices...
+Randomized indices across days ...
+Split data according to indices...
+Loading saved model /tmp/dlrm_rd/criteo-medium-100bat.pt
+Saved at: epoch = 0/1, batch = 512/512, ntbatch = 25581
+Training state: loss = 0.522237
+Testing state: accuracy = 76.654 %
+time/loss/accuracy (if enabled):
+Testing for inference only
+Capture range started in the application.
+Generating '/tmp/nsys-report-2154.qdstrm'
+Capture range ended in the application.
+[1/1] [0%                          ] dlrm-1649953971-timeline.nsys-rep[1/1] [0%                          ] dlrm-1649953971-timeline.nsys-rep[1/1] [7%                          ] dlrm-1649953971-timeline.nsys-rep[1/1] [12%                         ] dlrm-1649953971-timeline.nsys-rep[1/1] [=16%                        ] dlrm-1649953971-timeline.nsys-rep[1/1] [===22%                      ] dlrm-1649953971-timeline.nsys-rep[1/1] [====28%                     ] dlrm-1649953971-timeline.nsys-rep[1/1] [=============59%            ] dlrm-1649953971-timeline.nsys-rep[1/1] [==============62%           ] dlrm-1649953971-timeline.nsys-rep[1/1] [==============63%           ] dlrm-1649953971-timeline.nsys-rep[1/1] [==============64%           ] dlrm-1649953971-timeline.nsys-rep[1/1] [===============65%          ] dlrm-1649953971-timeline.nsys-rep[1/1] [==================75%       ] dlrm-1649953971-timeline.nsys-rep[1/1] [========================100%] dlrm-1649953971-timeline.nsys-rep[1/1] [========================100%] dlrm-1649953971-timeline.nsys-rep
+ accuracy 76.187 %, best 76.187 %
+Generated:
+    /home/eletonia/dlrm/dlrm-fork/dlrm/dlrm-1649953971-timeline.nsys-rep
