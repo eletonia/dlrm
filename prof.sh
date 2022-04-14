@@ -164,7 +164,6 @@ if [ ${PROFILER} != "ncu" ]; then
         ${NSYS_PROF_RANGE_OPTS} \
         ${NSYS_GPU_METRICS_OPTS} \
         --trace=${GPU_LIBS_TRACE} \
-	#--gpu-metrics-frequency=100000 \
         bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}.log.txt
 else 
     # Nsight Compute profiling
