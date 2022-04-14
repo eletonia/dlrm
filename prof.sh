@@ -140,7 +140,7 @@ esac
 # Will not generate gpu metrics if the device doesn't support it
 case $GPU_METRICS_TYPE in
     tu10x|tu11x|ga100|ga10x|tu10x-gfxt|ga10x-gfxt|ga10x-gfxact)
-        NSYS_GPU_METRICS_OPTS="--gpu-metrics-device=${CUDA_VISIBLE_DEVICES} --gpu-metrics-set=${GPU_METRICS_TYPE}"
+        NSYS_GPU_METRICS_OPTS="--gpu-metrics-device=2 --gpu-metrics-set=${GPU_METRICS_TYPE}"
         ;;
     *)
         NSYS_GPU_METRICS_OPTS=""
@@ -164,6 +164,7 @@ if [ ${PROFILER} != "ncu" ]; then
         ${NSYS_PROF_RANGE_OPTS} \
         ${NSYS_GPU_METRICS_OPTS} \
         --trace=${GPU_LIBS_TRACE} \
+	#--gpu-metrics-frequency=100000 \
         bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}.log.txt
 else 
     # Nsight Compute profiling
