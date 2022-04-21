@@ -44,8 +44,10 @@ NCU_KERNEL_REGEX=${NCU_KERNEL_REGEX:-gemm}
 PROF_OUT_DIR=${PROF_OUT_DIR:-${PWD}}
 mkdir -p $PROF_OUT_DIR
 
-# Specify the batch size of the application
-BatchSize=${BatchSize:-1}
+# Specify application parameters
+NumBatches=${NumBatches:-20}
+NumWorkers=${NumWorkers:-1}
+BatchSize=${BatchSize:-1024}
 
 # Set the host name for output file
 HOST=$(echo $HOSTNAME | grep -o '[[:digit:]]*')
