@@ -44,7 +44,13 @@ NCU_KERNEL_REGEX=${NCU_KERNEL_REGEX:-gemm}
 PROF_OUT_DIR=${PROF_OUT_DIR:-${PWD}}
 mkdir -p $PROF_OUT_DIR
 
-TIME_STAMP=$(date +%s)
+# Specify the batch size of the application
+BatchSize=${BatchSize:-1}
+
+# Set the host name for output file
+HOST=$(echo $HOSTNAME | grep -o '[[:digit:]]*')
+
+TIME_STAMP=$(date +%m_%d_%H_%M_%S)
 
 # ############################################
 # BEGIN block for core range calculation
@@ -160,11 +166,11 @@ if [ ${PROFILER} != "ncu" ]; then
     set -x
     taskset -c ${CORES} \
         ${NSYS_BIN} profile \
-        -f true -o ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}-timeline \
+        -f true -o ${PROF_OUT_DIR}/${HOST}-${APP}-BatchSize${BatchSize}-${TIME_STAMP}-timeline \
         ${NSYS_PROF_RANGE_OPTS} \
         ${NSYS_GPU_METRICS_OPTS} \
         --trace=${GPU_LIBS_TRACE} \
-        bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}.log.txt
+        bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${HOST}-${APP}-BatchSize${BatchSize}-${TIME_STAMP}.log.txt
 else 
     # Nsight Compute profiling
     NCU_BIN=${NCU_BIN:-/usr/local/cuda/bin/ncu}
@@ -176,7 +182,7 @@ else
     set -x
     taskset -c ${CORES} \
         ${NCU_BIN} --profile-from-start ${NCU_PROF_FROM_START} \
-        -o ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}-profile \
+        -o ${PROF_OUT_DIR}/${HOST}-${APP}-BatchSize${BatchSize}-${TIME_STAMP}-profile \
         --kernel-name-base mangled \
         -k regex:${NCU_KERNEL_REGEX} -s 200 -c 12 \
         --section SpeedOfLight \
@@ -186,5 +192,5 @@ else
         --section SchedulerStats \
         --section WarpStateStats \
         --target-processes all \
-        bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${APP}-${TIME_STAMP}.log.txt
+        bash -c "${APP_LAUNCH_CMD}" 2>&1 | tee ${PROF_OUT_DIR}/${HOST}-${APP}-BatchSize${BatchSize}-${TIME_STAMP}.log.txt
 fi
